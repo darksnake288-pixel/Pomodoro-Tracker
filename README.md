@@ -1,75 +1,93 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# ⏱️ React Timer & Stopwatch Application
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A sleek, responsive, and dynamic Timer / Stopwatch application built using **React**, **TypeScript**, and **Tailwind CSS**. This project showcases efficient state management, proper handling of side-effects with `useEffect`, and dynamic UI updating using CSS transitions.
 
-## React Compiler
+Project URL: [https://roadmap.sh/projects/timer-app](https://www.google.com/search?q=https://roadmap.sh/projects/timer-app)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Real-time Countdown/Stopwatch**: Precise time tracking handling seconds and minutes format (`MM:SS`).
+* **Dynamic Progress Bar**: Visual indication of elapsed time using Tailwind CSS dynamic styling.
+* **Interval Cleanup**: Memory-safe implementation leveraging React's `useEffect` cleanup return function to prevent memory leaks.
+* **Controls**: Start, Pause, and Reset functionality.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* **Frontend Framework:** React.js
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **Icons & Formatting:** Custom Utility Functions (`padStart`)
+
+---
+
+## 💡 Code Highlights
+
+```tsx
+// Managing the timer interval safely with useEffect cleanup
+useEffect(() => {
+  let interval: NodeJS.Timeout | null = null;
+
+  if (isRunning) {
+    interval = setInterval(() => {
+      setSeconds((prevSeconds) => prevSeconds + 1);
+    }, 1000);
+  }
+
+  return () => {
+    if (interval) clearInterval(interval);
+  };
+}, [isRunning]);
+
+```
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+Ensure you have **Node.js** and **npm** installed on your machine.
+
+### Installation
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/your-username/timer-app.git
 
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. **Navigate to the project directory:**
+```bash
+cd timer-app
 
 ```
+
+
+3. **Install dependencies:**
+```bash
+npm install
+
+```
+
+
+4. **Run the development server:**
+```bash
+npm run dev
+
+```
+
+
+
+---
+
+## 📬 Author
+
+Created by **Youssef (Joe)** — [LinkedIn](https://linkedin.com) | [GitHub](https://github.com)
