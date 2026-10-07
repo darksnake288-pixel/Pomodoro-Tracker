@@ -5,7 +5,7 @@
 
 A sleek, responsive, and dynamic Timer / Stopwatch application built using **React**, **TypeScript**, and **Tailwind CSS**. This project showcases efficient state management, proper handling of side-effects with `useEffect`, and dynamic UI updating using CSS transitions.
 
-Project URL: [https://roadmap.sh/projects/timer-app](https://www.google.com/search?q=https://roadmap.sh/projects/timer-app)
+Project URL: https://roadmap.sh/projects/pomodoro-timer
 
 ---
 
