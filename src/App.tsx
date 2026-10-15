@@ -48,14 +48,14 @@ const App = () => {
   const progressPercentage = (seconds / TOTAL_SECONDS) * 100;
 
   return (
-    <div className="App flex flex-col items-center justify-center h-screen bg-gray-50 gap-6">
-      <div>
+    <div className="App flex flex-col items-center justify-center min-h-screen min-h-dvh bg-gray-50 gap-6 p-4">
+      <div className="w-full max-w-96">
         {/* Timer Border */}
-        <div className="border-2 border-black rounded-lg w-96 h-96 p-6 flex flex-col items-center justify-between bg-white shadow-sm">
+        <div className="border-2 border-black rounded-lg w-full aspect-square p-6 flex flex-col items-center justify-between bg-white shadow-sm">
           
           {/* Timer Display */}
           <div className="flex-1 flex items-center justify-center">
-            <div className="text-6xl font-bold text-center tracking-wider font-mono">
+            <div className="text-5xl sm:text-6xl font-bold text-center tracking-wider font-mono">
               <span className="text-black">{formatMins}</span>
               <span className="text-gray-400 mx-1">:</span>
               <span className="text-black">{formatSecs}</span>
@@ -74,7 +74,7 @@ const App = () => {
       </div>
 
       {/* Control Buttons */}
-      <div className="flex gap-4 w-96">
+      <div className="flex gap-4 w-full max-w-96">
         <button
           className="bg-black hover:bg-gray-800 text-white font-medium rounded-lg p-3 flex-1 transition-all active:scale-95 cursor-pointer"
           onClick={handleToggle}
